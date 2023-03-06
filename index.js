@@ -106,24 +106,10 @@ const criaFormatadorDePalavraBonitao = (palavra) => {
 	return funcaoInternaQueFormataBonitao;
 }
 
-function funcGetWord() {
-
+function onClickBotaoEnviar() {
+	console.log("- - - - - - - começando algoritmo - - - - - - -")
 	const palavra = document.getElementById("palavra").value;
 	formataAPalavraBonitao = criaFormatadorDePalavraBonitao(palavra);
+	
 	q0(palavra, 0);
-
 }
-
-
-const palavra
-// = "";
-// = "a";
-// = "c";
-// = "caaa";
-// = "aaaaaaaaaabbbbbbbbbbbbc";
-// = "abc";
-// = "abcabcabcabc";
-= "abccababababa";
-// = "ababababac";
-
-

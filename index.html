@@ -7,49 +7,18 @@
 	<title>ER - AFD</title>
 </head>
 <body style="background-color: aquamarine; width: 100%">
-	<div style="background-color:beige ;margin-top: 10%; border: 3px solid black; border-radius: 10px; width: 700px; margin-left: auto; margin-right: auto; padding:15px">
-		<div style=" line-height: 30px; text-align: center; border-solid:2px">
+	<div style="background-color:beige; margin-top: 10%; border: 3px solid black; border-radius: 10px; width: 700px; margin-left: auto; margin-right: auto; padding:15px">
+		<div style=" line-height: 30px; text-align: center;">
+			
 			<h2> Linguagens Formais e Compiladores 2: Exercício 1 ツ</h2> 
-			<img src="./image.png" height="200px" style="border:1px solid black"><br>
-			<label>Informe uma palavra (usando somente A, B e C): </label> 
+			<img src="image.png" height="200px" style="border:1px solid black"><br>
+			
+			<label>Informe uma palavra (usando somente a, b e c): </label> 
 			<input type="text" id="palavra"><br>
-			<input type="button" value="Enviar" onclick="funcGetWord()"> 
+			<input type="button" value="Enviar" onclick="onClickBotaoEnviar()"> 
+
 		</div>
 	</div>
-<!--
-	poe uma pica da afd q resorve o pobrema:
-	https://ibb.co/LY7bBYh
-	tá meio merda na vdd podia pôr a escritinha q0, q1, q2, q3...
-	tem que criar uma text field que só aceita vc inputar o alfabeto (a,b,c)
-	ou nao tbm ou deixa passar tudo e fds
-	dai pega o texto de la e joga pra função q0 no yavascript
-	seria legal mostrar um campinho de texto com as etapas q rodaram
-	por exemplo, com o input a palavra abababababc
-	dai mostrar:
---------------------------
-abababababc
-↑
-q0
---------------------------
-abababababc
- ↑
- q1
---------------------------
-abababababc
-  ↑
-  q1
---------------------------
-...
---------------------------
-abababababc
-↑
-q3
---------------------------
-abababababc
-↑
-recusado
---------------------------
--->
 
 	<script src="index.js"></script>
 </body>

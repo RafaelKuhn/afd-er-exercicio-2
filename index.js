@@ -3,6 +3,7 @@
 const a = "a";
 const b = "b";
 const c = "c";
+let formataAPalavraBonitao;
 
 /** @param {String} palavra @param {Number} indiceNaPalavra */
 const q0 = (palavra, indiceNaPalavra) => {
@@ -65,7 +66,7 @@ const q3 = (palavra, indiceNaPalavra) => {
 
 /** @param {String} estadoFinal */
 const terminouPalavraNoEstado = (estadoFinal) => {
-	alert(`terminou no estado ${estadoFinal}, aceito? ${estadoFinal == "q3"}, ver console!`);
+	alert(`terminou no estado ${estadoFinal}, ${estadoFinal == "q3" ? "Palavra Aceita" : "Palavra Rejeitada"}, ver console!`);
 }
 
 const achouUmNaoDefinido = () => {
@@ -105,6 +106,15 @@ const criaFormatadorDePalavraBonitao = (palavra) => {
 	return funcaoInternaQueFormataBonitao;
 }
 
+function funcGetWord() {
+
+	const palavra = document.getElementById("palavra").value;
+	formataAPalavraBonitao = criaFormatadorDePalavraBonitao(palavra);
+	q0(palavra, 0);
+
+}
+
+
 const palavra
 // = "";
 // = "a";
@@ -116,5 +126,4 @@ const palavra
 = "abccababababa";
 // = "ababababac";
 
-const formataAPalavraBonitao = criaFormatadorDePalavraBonitao(palavra);
-q0(palavra, 0);
+

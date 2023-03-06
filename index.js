@@ -70,7 +70,7 @@ const terminouPalavraNoEstado = (estadoFinal) => {
 }
 
 const achouUmNaoDefinido = () => {
-	alert(`se fudeu mano indefinido essa porra ai, ver console!`);
+	alert(`Caracter não definido, ver console!`);
 }
 
 

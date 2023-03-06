@@ -66,10 +66,12 @@ const q3 = (palavra, indiceNaPalavra) => {
 
 /** @param {String} estadoFinal */
 const terminouPalavraNoEstado = (estadoFinal) => {
+	console.log(`${estadoFinal == "q3" ? "ACEITA" : "REJEITADA"}`);
 	alert(`terminou no estado ${estadoFinal}, ${estadoFinal == "q3" ? "Palavra Aceita" : "Palavra Rejeitada"}, ver console!`);
 }
 
 const achouUmNaoDefinido = () => {
+	console.log("REJEITADA");
 	alert(`Caracter não definido, ver console!`);
 }
 

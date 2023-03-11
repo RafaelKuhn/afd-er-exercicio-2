@@ -1,8 +1,14 @@
-// (a|b)+ cc(a|b|c)*
+// (( + | - )(0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9)) | ( 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9)+
 
-const a = "a";
-const b = "b";
-const c = "c";
+const S = [ "+", "-" ]
+const N = [ "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" ]
+
+const ehNumerico = char => N.includes(char);
+const ehSinal    = char => S.includes(char);
+
+const estadoAceito = "q2";
+
+
 let formataAPalavraBonitao;
 
 /** @param {String} palavra @param {Number} indiceNaPalavra */
@@ -13,8 +19,10 @@ const q0 = (palavra, indiceNaPalavra) => {
 	const charAtual = palavra[indiceNaPalavra];
 	console.log(`em: q0, estado: ${formataAPalavraBonitao(indiceNaPalavra)}`);
 
-	if (charAtual == a || charAtual == b)
+	if (ehSinal(charAtual))
 		q1(palavra, indiceNaPalavra + 1);
+	else if (ehNumerico(charAtual))
+		q2(palavra, indiceNaPalavra + 1)
 	else
 		achouUmNaoDefinido();
 }
@@ -27,10 +35,8 @@ const q1 = (palavra, indiceNaPalavra) => {
 	const charAtual = palavra[indiceNaPalavra];
 	console.log(`em: q1, estado: ${formataAPalavraBonitao(indiceNaPalavra)}`);
 
-	if (charAtual == a || charAtual == b)
-		q1(palavra, indiceNaPalavra + 1);
-	else if (charAtual == c)
-		q2(palavra, indiceNaPalavra + 1)
+	if (ehNumerico(charAtual))
+		q2(palavra, indiceNaPalavra + 1);
 	else
 		achouUmNaoDefinido();
 }
@@ -43,31 +49,21 @@ const q2 = (palavra, indiceNaPalavra) => {
 	const charAtual = palavra[indiceNaPalavra];
 	console.log(`em: q2, estado: ${formataAPalavraBonitao(indiceNaPalavra)}`);
 
-	if (charAtual == c)
-		q3(palavra, indiceNaPalavra + 1);
+	if (ehNumerico(charAtual))
+		q2(palavra, indiceNaPalavra + 1);
 	else
 		achouUmNaoDefinido();
 }
-
-/** @param {String} palavra @param {Number} indiceNaPalavra */
-const q3 = (palavra, indiceNaPalavra) => {
-	const terminouAPalavra = indiceNaPalavra == palavra.length;
-	if (terminouAPalavra) { terminouPalavraNoEstado("q3"); return; }
-	
-	const charAtual = palavra[indiceNaPalavra];
-	console.log(`em: q3, estado: ${formataAPalavraBonitao(indiceNaPalavra)}`);
-
-	if (charAtual == a || charAtual == b || charAtual == c)
-		q3(palavra, indiceNaPalavra + 1);
-	else
-		achouUmNaoDefinido();
-}
-
 
 /** @param {String} estadoFinal */
 const terminouPalavraNoEstado = (estadoFinal) => {
-	console.log(`${estadoFinal == "q3" ? "ACEITA" : "REJEITADA"}`);
-	alert(`terminou no estado ${estadoFinal}, ${estadoFinal == "q3" ? "Palavra Aceita" : "Palavra Rejeitada"}, ver console!`);
+	if (estadoFinal == estadoAceito) {
+		console.log("ACEITA")
+		alert(`terminou no estado ${estadoFinal}, Palavra Aceita, ver console!`);
+	}	else {
+		console.log("REJEITADA")
+		alert(`terminou no estado ${estadoFinal}, Palavra Rejeitada, ver console!`);
+	}
 }
 
 const achouUmNaoDefinido = () => {
